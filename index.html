@@ -3,41 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="stylesheet"
-      href= "https://tailwindcss.com/docs/installation"
-    />
-
+   
+   <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    
     <title>Weather-App</title>
   </head>
-  <body
-    class="absolute inset-0 bg-[url('https://www.un.org/sites/un2.un.org/files/styles/large-article-image-style-16-9/public/field/image/2023/03/52196025795_06f077377a_c.jpg')] bg-cover bg-center before:absolute before:inset-1 before:bg-black before:opacity-50"
-  >
+  <body class="">
+    
     <!-- Adding a form and input where the city name would be typed -->
     <form class="example" action="">
       <input
-        class="border border-black-200 m-2 rounded-sm bg-white"
+        class="border border-gray-200 m-2 rounded-sm bg-white px-2 py-1"
         id="city"
         type="text"
         placeholder="Search City .."
         name="search"
       />
       <button
-        class="border border-black-200 rounded-sm w-7 bg-white"
+        class="border border-gray-200 rounded-sm w-7 bg-white p-1"
         type="submit"
       >
         <i class="fa fa-search"></i>
-        <!-- Get Weather -->
       </button>
     </form>
 
-    
-
-    <!-- Api Calling will be placed here  -->
+    <!-- API Calling will be placed here -->
     <div class="container"></div>
-
 
     <script src="script.js"></script>
   </body>

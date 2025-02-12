@@ -1,35 +1,36 @@
 
 
-async function getWather(params) {
-const api = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY`;
-    
- const city = document.getelementById("city").value;
- if(!city) {
-    alert("Please enter a city!");
-    return;
- }
 
- const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+// Selects the first form element in your HTML.
+// adds event listener that runs when form is submitted
+
+document.querySelector("form").addEventListener("submit", function (event) {
+   event.preventDefault(); //stop the page from reloading 
+
+   const city = document.getElementById("city").value.trim(); //get user input without spaces
  
- try{
-    const response = await fetch(url);
-    const data = await response.json();
+   
+   if(city) {
 
-    if(data.cod !== 200){
-        document.getElementById("weather").innerHTML = `<p class="text-red-500">${data.message}</p>`;
-        return;
-    }
+      const apikey = `60cd929853a7126e32474435012191dd`;
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`;
+       console.log("Fetching", apiUrl);
+    
+      fetch(apiUrl)
+      .then(response => {
+         if(!response.ok){
+            throw new Error("City not found");
+         }
 
-    document.getElementById("weather").innerHTML = `
-    <p class="text-gray-700">${data.name}, ${data.sys.country}</p>
-    <p class="text-4xl font-bold">${data.main.temp}°C</p>
-    <p class="text-gray-500">${data.weather[0].description}</p>
-`;
- }
- catch(error){
-    console.error("Error fetching weather data:" , error);
- }
+         return response.json();
+      })
+      .then(data => {
+         console.log(data);  //log api response 
 
-}
-
-
+      })
+      .catch(error => console.error("Error fetching data: ", error));
+   } else {
+      alert("Please enter a city name!");
+   }
+});
