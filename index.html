@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href= "https://tailwindcss.com/docs/installation"
+    />
 
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Weather-App</title>
-</head>
-<body class="bg-blue-100 ">
+  </head>
+  <body
+    class="absolute inset-0 bg-[url('https://www.un.org/sites/un2.un.org/files/styles/large-article-image-style-16-9/public/field/image/2023/03/52196025795_06f077377a_c.jpg')] bg-cover bg-center before:absolute before:inset-1 before:bg-black before:opacity-50"
+  >
+    <!-- Adding a form and input where the city name would be typed -->
+    <form class="example" action="">
+      <input
+        class="border border-black-200 m-2 rounded-sm bg-white"
+        id="city"
+        type="text"
+        placeholder="Search City .."
+        name="search"
+      />
+      <button
+        class="border border-black-200 rounded-sm w-7 bg-white"
+        type="submit"
+      >
+        <i class="fa fa-search"></i>
+        <!-- Get Weather -->
+      </button>
+    </form>
 
-  <!-- Adding a form and input where the city name would be typed -->
-  <form class="example" action="">
-    <input class="border border-black-200 m-2 rounded-sm bg-white" type="text" placeholder="Search.." name="search">
-    <button class="border border-black-200 rounded-sm w-7 bg-white" type="submit"><i class="fa fa-search"></i></button>
-  </form>
-
-  <h2>ram ram
     
-  </h2>
 
-  <!-- Api Calling will be placed here  -->
-  <div class="container">
-    
-  </div>
+    <!-- Api Calling will be placed here  -->
+    <div class="container"></div>
+
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
