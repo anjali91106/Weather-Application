@@ -3,38 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   
-   <!-- Tailwind CDN -->
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css" />
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     
-    <title>Weather-App</title>
+    <title>Weather App</title>
   </head>
-  <body class="">
+  <body class="bg-gradient-to-r from-blue-400 to-indigo-500 flex justify-center items-center min-h-screen p-4">
     
-    <!-- Adding a form and input where the city name would be typed -->
-    <form class="example" action="">
-      <input
-        class="border border-gray-200 m-2 rounded-sm bg-white px-2 py-1"
-        id="city"
-        type="text"
-        placeholder="Search City .."
-        name="search"
-      />
-      <button
-        class="border border-gray-200 rounded-sm w-7 bg-white p-1"
-        type="submit"
-      >
-        <i class="fa fa-search"></i>
-      </button>
-    </form>
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md text-center">
+      
+      <!-- App Title -->
+      <h1 class="text-3xl font-bold text-gray-800 mb-4">Weather App</h1>
 
-    <!-- API Calling will be placed here -->
-    <div class="container"></div>
+      <!-- Search Box -->
+      <div class="relative">
+        <div class="flex items-center bg-gray-100 rounded-lg px-3 py-2 shadow-md">
+          <input
+            class="w-full p-2 bg-transparent outline-none text-gray-700"
+            id="city"
+            type="text"
+            placeholder="Enter city name..."
+          />
+          <button id="searchBtn" class="text-blue-500 hover:text-blue-700 transition">
+            <i class="fa fa-search text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Dropdown for Recent Searches -->
+        <div id="recentCities" class="hidden absolute left-0 w-full bg-white border rounded-lg shadow-md mt-2">
+          <ul id="recentList" class="p-2 space-y-2"></ul>
+        </div>
+      </div>
+
+      <!-- Current Location Button -->
+      <button id="currentLocationBtn" class="mt-3 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition">
+        Use Current Location
+      </button>
+
+      <!-- Weather Info -->
+      <div id="weather" class="mt-6 hidden">
+        <h2 class="text-xl font-semibold text-gray-700">
+          Weather in <span id="city-name"></span>
+        </h2>
+        <div class="flex justify-center items-center gap-4 mt-2">
+          <img id="weather-icon" src="" alt="Weather Icon" class="w-16 h-16">
+          <p class="text-4xl font-bold">
+            <span id="temp"></span>°C
+          </p>
+        </div>
+        <p id="condition" class="text-lg text-gray-600"></p>
+        <p>Humidity: <span id="humidity"></span>%</p>
+        <p>Wind Speed: <span id="wind-speed"></span> km/h</p>
+      </div>
+
+      <!-- 5-Day Forecast -->
+      <div id="forecastDisplay" class="mt-6 hidden">
+        <h3 class="text-lg font-semibold text-gray-700">5-Day Forecast</h3>
+        <div id="forecastContainer" class="grid grid-cols-3 gap-2 mt-2">
+          <!-- Forecast data will be inserted here -->
+        </div>
+      </div>
+
+      <!-- Error Message -->
+      <p id="errorMsg" class="text-red-500 text-center mt-2 hidden"></p>
+    
+    </div>
 
     <script src="script.js"></script>
   </body>
